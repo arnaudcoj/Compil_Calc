@@ -7,19 +7,19 @@ Model:
 ;
 
 Formule:
-	Terme Expr
+	Terme Operation
 ;
 
-Expr:
-	(('+'|'-') Terme Expr)?
+Operation:
+	(('+'|'-') Terme Operation)?
+;
+
+OperationPrio:
+	(('*'|'/') Facteur OperationPrio)?
 ;
 
 Terme:
-	Facteur Termep
-;
-
-Termep:
-	(('*'|'/') Facteur Termep)?
+	Facteur OperationPrio
 ;
 
 Facteur:
