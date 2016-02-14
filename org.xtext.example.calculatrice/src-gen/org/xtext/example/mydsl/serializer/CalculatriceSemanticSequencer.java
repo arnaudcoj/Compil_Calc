@@ -11,9 +11,15 @@ import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Parameter;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.serializer.ISerializationContext;
+import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
+import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
+import org.xtext.example.mydsl.calculatrice.BoolExpr;
+import org.xtext.example.mydsl.calculatrice.Calc;
+import org.xtext.example.mydsl.calculatrice.CalcExpr;
+import org.xtext.example.mydsl.calculatrice.Calculatrice;
 import org.xtext.example.mydsl.calculatrice.CalculatricePackage;
-import org.xtext.example.mydsl.calculatrice.Model;
+import org.xtext.example.mydsl.calculatrice.VarCall;
 import org.xtext.example.mydsl.services.CalculatriceGrammarAccess;
 
 @SuppressWarnings("all")
@@ -30,8 +36,46 @@ public class CalculatriceSemanticSequencer extends AbstractDelegatingSemanticSeq
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == CalculatricePackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case CalculatricePackage.MODEL:
-				sequence_Model(context, (Model) semanticObject); 
+			case CalculatricePackage.BOOL_EXPR:
+				if (rule == grammarAccess.getBoolExprRule()
+						|| action == grammarAccess.getBoolExprAccess().getBoolExprLeftAction_1_0()
+						|| rule == grammarAccess.getBoolRule()) {
+					sequence_BoolExpr(context, (BoolExpr) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getCalcRule()
+						|| rule == grammarAccess.getConditionRule()) {
+					sequence_BoolExpr_Condition(context, (BoolExpr) semanticObject); 
+					return; 
+				}
+				else break;
+			case CalculatricePackage.BOOLEAN:
+				if (rule == grammarAccess.getBoolExprRule()
+						|| action == grammarAccess.getBoolExprAccess().getBoolExprLeftAction_1_0()
+						|| rule == grammarAccess.getBoolRule()) {
+					sequence_Bool(context, (org.xtext.example.mydsl.calculatrice.Boolean) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getCalcRule()
+						|| rule == grammarAccess.getConditionRule()) {
+					sequence_Bool_Condition(context, (org.xtext.example.mydsl.calculatrice.Boolean) semanticObject); 
+					return; 
+				}
+				else break;
+			case CalculatricePackage.CALC:
+				sequence_Calc(context, (Calc) semanticObject); 
+				return; 
+			case CalculatricePackage.CALC_EXPR:
+				sequence_CalcExpr_Term(context, (CalcExpr) semanticObject); 
+				return; 
+			case CalculatricePackage.CALCULATRICE:
+				sequence_Calculatrice(context, (Calculatrice) semanticObject); 
+				return; 
+			case CalculatricePackage.NUMBER:
+				sequence_Factor(context, (org.xtext.example.mydsl.calculatrice.Number) semanticObject); 
+				return; 
+			case CalculatricePackage.VAR_CALL:
+				sequence_Factor(context, (VarCall) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -40,13 +84,133 @@ public class CalculatriceSemanticSequencer extends AbstractDelegatingSemanticSeq
 	
 	/**
 	 * Contexts:
-	 *     Model returns Model
+	 *     BoolExpr returns BoolExpr
+	 *     BoolExpr.BoolExpr_1_0 returns BoolExpr
+	 *     Bool returns BoolExpr
 	 *
 	 * Constraint:
-	 *     formule+=Formule
+	 *     (left=BoolExpr_BoolExpr_1_0 (op='&&' | op='||') right=BoolExpr)
 	 */
-	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
+	protected void sequence_BoolExpr(ISerializationContext context, BoolExpr semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Calc returns BoolExpr
+	 *     Condition returns BoolExpr
+	 *
+	 * Constraint:
+	 *     (left=BoolExpr_BoolExpr_1_0 (op='&&' | op='||') right=BoolExpr thenBlock=Calc elseBlock=Calc?)
+	 */
+	protected void sequence_BoolExpr_Condition(ISerializationContext context, BoolExpr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     BoolExpr returns Boolean
+	 *     BoolExpr.BoolExpr_1_0 returns Boolean
+	 *     Bool returns Boolean
+	 *
+	 * Constraint:
+	 *     (BoolValue='true' | BoolValue='false')
+	 */
+	protected void sequence_Bool(ISerializationContext context, org.xtext.example.mydsl.calculatrice.Boolean semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Calc returns Boolean
+	 *     Condition returns Boolean
+	 *
+	 * Constraint:
+	 *     ((BoolValue='true' | BoolValue='false') thenBlock=Calc elseBlock=Calc?)
+	 */
+	protected void sequence_Bool_Condition(ISerializationContext context, org.xtext.example.mydsl.calculatrice.Boolean semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     CalcExpr returns CalcExpr
+	 *     CalcExpr.CalcExpr_1_0 returns CalcExpr
+	 *     Term returns CalcExpr
+	 *     Term.CalcExpr_1_0 returns CalcExpr
+	 *     Factor returns CalcExpr
+	 *
+	 * Constraint:
+	 *     ((left=CalcExpr_CalcExpr_1_0 (op='+' | op='-') right=CalcExpr) | (left=Term_CalcExpr_1_0 (op='*' | op='/') right=Term))
+	 */
+	protected void sequence_CalcExpr_Term(ISerializationContext context, CalcExpr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Calc returns Calc
+	 *
+	 * Constraint:
+	 *     ((boolName=ID b=BoolExpr) | ((decl?='var'? varName=ID)? e=CalcExpr))
+	 */
+	protected void sequence_Calc(ISerializationContext context, Calc semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Calculatrice returns Calculatrice
+	 *
+	 * Constraint:
+	 *     calculs+=Calc+
+	 */
+	protected void sequence_Calculatrice(ISerializationContext context, Calculatrice semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     CalcExpr returns Number
+	 *     CalcExpr.CalcExpr_1_0 returns Number
+	 *     Term returns Number
+	 *     Term.CalcExpr_1_0 returns Number
+	 *     Factor returns Number
+	 *
+	 * Constraint:
+	 *     (neg?='-'? value=INT)
+	 */
+	protected void sequence_Factor(ISerializationContext context, org.xtext.example.mydsl.calculatrice.Number semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     CalcExpr returns VarCall
+	 *     CalcExpr.CalcExpr_1_0 returns VarCall
+	 *     Term returns VarCall
+	 *     Term.CalcExpr_1_0 returns VarCall
+	 *     Factor returns VarCall
+	 *
+	 * Constraint:
+	 *     varCall=ID
+	 */
+	protected void sequence_Factor(ISerializationContext context, VarCall semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, CalculatricePackage.Literals.VAR_CALL__VAR_CALL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CalculatricePackage.Literals.VAR_CALL__VAR_CALL));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getFactorAccess().getVarCallIDTerminalRuleCall_2_1_0(), semanticObject.getVarCall());
+		feeder.finish();
 	}
 	
 	

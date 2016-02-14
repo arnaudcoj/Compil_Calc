@@ -11,7 +11,14 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import org.xtext.example.mydsl.calculatrice.*;
+import org.xtext.example.mydsl.calculatrice.BoolExpr;
+import org.xtext.example.mydsl.calculatrice.Calc;
+import org.xtext.example.mydsl.calculatrice.CalcExpr;
+import org.xtext.example.mydsl.calculatrice.Calculatrice;
+import org.xtext.example.mydsl.calculatrice.CalculatriceFactory;
+import org.xtext.example.mydsl.calculatrice.CalculatricePackage;
+import org.xtext.example.mydsl.calculatrice.Condition;
+import org.xtext.example.mydsl.calculatrice.VarCall;
 
 /**
  * <!-- begin-user-doc -->
@@ -65,7 +72,14 @@ public class CalculatriceFactoryImpl extends EFactoryImpl implements Calculatric
   {
     switch (eClass.getClassifierID())
     {
-      case CalculatricePackage.MODEL: return createModel();
+      case CalculatricePackage.CALCULATRICE: return createCalculatrice();
+      case CalculatricePackage.CALC: return createCalc();
+      case CalculatricePackage.CALC_EXPR: return createCalcExpr();
+      case CalculatricePackage.CONDITION: return createCondition();
+      case CalculatricePackage.BOOL_EXPR: return createBoolExpr();
+      case CalculatricePackage.NUMBER: return createNumber();
+      case CalculatricePackage.VAR_CALL: return createVarCall();
+      case CalculatricePackage.BOOLEAN: return createBoolean();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -76,10 +90,87 @@ public class CalculatriceFactoryImpl extends EFactoryImpl implements Calculatric
    * <!-- end-user-doc -->
    * @generated
    */
-  public Model createModel()
+  public Calculatrice createCalculatrice()
   {
-    ModelImpl model = new ModelImpl();
-    return model;
+    CalculatriceImpl calculatrice = new CalculatriceImpl();
+    return calculatrice;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Calc createCalc()
+  {
+    CalcImpl calc = new CalcImpl();
+    return calc;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public CalcExpr createCalcExpr()
+  {
+    CalcExprImpl calcExpr = new CalcExprImpl();
+    return calcExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Condition createCondition()
+  {
+    ConditionImpl condition = new ConditionImpl();
+    return condition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BoolExpr createBoolExpr()
+  {
+    BoolExprImpl boolExpr = new BoolExprImpl();
+    return boolExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public org.xtext.example.mydsl.calculatrice.Number createNumber()
+  {
+    NumberImpl number = new NumberImpl();
+    return number;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public VarCall createVarCall()
+  {
+    VarCallImpl varCall = new VarCallImpl();
+    return varCall;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public org.xtext.example.mydsl.calculatrice.Boolean createBoolean()
+  {
+    BooleanImpl boolean_ = new BooleanImpl();
+    return boolean_;
   }
 
   /**

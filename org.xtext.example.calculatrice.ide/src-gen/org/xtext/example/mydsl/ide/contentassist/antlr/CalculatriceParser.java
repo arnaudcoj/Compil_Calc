@@ -35,15 +35,48 @@ public class CalculatriceParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
-					put(grammarAccess.getExprAccess().getAlternatives_0(), "rule__Expr__Alternatives_0");
-					put(grammarAccess.getTermepAccess().getAlternatives_0(), "rule__Termep__Alternatives_0");
-					put(grammarAccess.getFacteurAccess().getAlternatives(), "rule__Facteur__Alternatives");
-					put(grammarAccess.getFormuleAccess().getGroup(), "rule__Formule__Group__0");
-					put(grammarAccess.getExprAccess().getGroup(), "rule__Expr__Group__0");
-					put(grammarAccess.getTermeAccess().getGroup(), "rule__Terme__Group__0");
-					put(grammarAccess.getTermepAccess().getGroup(), "rule__Termep__Group__0");
-					put(grammarAccess.getFacteurAccess().getGroup_0(), "rule__Facteur__Group_0__0");
-					put(grammarAccess.getModelAccess().getFormuleAssignment(), "rule__Model__FormuleAssignment");
+					put(grammarAccess.getCalcAccess().getAlternatives(), "rule__Calc__Alternatives");
+					put(grammarAccess.getCalcExprAccess().getOpAlternatives_1_1_0(), "rule__CalcExpr__OpAlternatives_1_1_0");
+					put(grammarAccess.getTermAccess().getOpAlternatives_1_1_0(), "rule__Term__OpAlternatives_1_1_0");
+					put(grammarAccess.getFactorAccess().getAlternatives(), "rule__Factor__Alternatives");
+					put(grammarAccess.getBoolExprAccess().getOpAlternatives_1_1_0(), "rule__BoolExpr__OpAlternatives_1_1_0");
+					put(grammarAccess.getBoolAccess().getAlternatives(), "rule__Bool__Alternatives");
+					put(grammarAccess.getBoolAccess().getBoolValueAlternatives_1_1_0(), "rule__Bool__BoolValueAlternatives_1_1_0");
+					put(grammarAccess.getCalculatriceAccess().getGroup(), "rule__Calculatrice__Group__0");
+					put(grammarAccess.getCalcAccess().getGroup_0(), "rule__Calc__Group_0__0");
+					put(grammarAccess.getCalcAccess().getGroup_2(), "rule__Calc__Group_2__0");
+					put(grammarAccess.getCalcAccess().getGroup_2_0(), "rule__Calc__Group_2_0__0");
+					put(grammarAccess.getCalcExprAccess().getGroup(), "rule__CalcExpr__Group__0");
+					put(grammarAccess.getCalcExprAccess().getGroup_1(), "rule__CalcExpr__Group_1__0");
+					put(grammarAccess.getTermAccess().getGroup(), "rule__Term__Group__0");
+					put(grammarAccess.getTermAccess().getGroup_1(), "rule__Term__Group_1__0");
+					put(grammarAccess.getFactorAccess().getGroup_0(), "rule__Factor__Group_0__0");
+					put(grammarAccess.getFactorAccess().getGroup_1(), "rule__Factor__Group_1__0");
+					put(grammarAccess.getFactorAccess().getGroup_2(), "rule__Factor__Group_2__0");
+					put(grammarAccess.getConditionAccess().getGroup(), "rule__Condition__Group__0");
+					put(grammarAccess.getConditionAccess().getGroup_4(), "rule__Condition__Group_4__0");
+					put(grammarAccess.getBoolExprAccess().getGroup(), "rule__BoolExpr__Group__0");
+					put(grammarAccess.getBoolExprAccess().getGroup_1(), "rule__BoolExpr__Group_1__0");
+					put(grammarAccess.getBoolAccess().getGroup_0(), "rule__Bool__Group_0__0");
+					put(grammarAccess.getBoolAccess().getGroup_1(), "rule__Bool__Group_1__0");
+					put(grammarAccess.getCalculatriceAccess().getCalculsAssignment_0(), "rule__Calculatrice__CalculsAssignment_0");
+					put(grammarAccess.getCalcAccess().getBoolNameAssignment_0_1(), "rule__Calc__BoolNameAssignment_0_1");
+					put(grammarAccess.getCalcAccess().getBAssignment_0_3(), "rule__Calc__BAssignment_0_3");
+					put(grammarAccess.getCalcAccess().getDeclAssignment_2_0_0(), "rule__Calc__DeclAssignment_2_0_0");
+					put(grammarAccess.getCalcAccess().getVarNameAssignment_2_0_1(), "rule__Calc__VarNameAssignment_2_0_1");
+					put(grammarAccess.getCalcAccess().getEAssignment_2_1(), "rule__Calc__EAssignment_2_1");
+					put(grammarAccess.getCalcExprAccess().getOpAssignment_1_1(), "rule__CalcExpr__OpAssignment_1_1");
+					put(grammarAccess.getCalcExprAccess().getRightAssignment_1_2(), "rule__CalcExpr__RightAssignment_1_2");
+					put(grammarAccess.getTermAccess().getOpAssignment_1_1(), "rule__Term__OpAssignment_1_1");
+					put(grammarAccess.getTermAccess().getRightAssignment_1_2(), "rule__Term__RightAssignment_1_2");
+					put(grammarAccess.getFactorAccess().getNegAssignment_1_1(), "rule__Factor__NegAssignment_1_1");
+					put(grammarAccess.getFactorAccess().getValueAssignment_1_2(), "rule__Factor__ValueAssignment_1_2");
+					put(grammarAccess.getFactorAccess().getVarCallAssignment_2_1(), "rule__Factor__VarCallAssignment_2_1");
+					put(grammarAccess.getConditionAccess().getThenBlockAssignment_3(), "rule__Condition__ThenBlockAssignment_3");
+					put(grammarAccess.getConditionAccess().getElseBlockAssignment_4_1(), "rule__Condition__ElseBlockAssignment_4_1");
+					put(grammarAccess.getBoolExprAccess().getOpAssignment_1_1(), "rule__BoolExpr__OpAssignment_1_1");
+					put(grammarAccess.getBoolExprAccess().getRightAssignment_1_2(), "rule__BoolExpr__RightAssignment_1_2");
+					put(grammarAccess.getBoolAccess().getBoolValueAssignment_1_1(), "rule__Bool__BoolValueAssignment_1_1");
 				}
 			};
 		}
@@ -54,7 +87,7 @@ public class CalculatriceParser extends AbstractContentAssistParser {
 	protected Collection<FollowElement> getFollowElements(AbstractInternalContentAssistParser parser) {
 		try {
 			InternalCalculatriceParser typedParser = (InternalCalculatriceParser) parser;
-			typedParser.entryRuleModel();
+			typedParser.entryRuleCalculatrice();
 			return typedParser.getFollowElements();
 		} catch(RecognitionException ex) {
 			throw new RuntimeException(ex);

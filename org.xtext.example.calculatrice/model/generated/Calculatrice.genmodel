@@ -6,8 +6,38 @@
     complianceLevel="6.0" copyrightFields="false" runtimeVersion="2.11">
   <genPackages prefix="Calculatrice" basePackage="org.xtext.example.mydsl" disposableProviderFactory="true"
       fileExtensions="calcc" ecorePackage="Calculatrice.ecore#/">
-    <genClasses ecoreClass="Calculatrice.ecore#//Model">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Calculatrice.ecore#//Model/formule"/>
+    <genClasses ecoreClass="Calculatrice.ecore#//Calculatrice">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Calculatrice.ecore#//Calculatrice/calculs"/>
+    </genClasses>
+    <genClasses ecoreClass="Calculatrice.ecore#//Calc">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Calculatrice.ecore#//Calc/boolName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Calculatrice.ecore#//Calc/b"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Calculatrice.ecore#//Calc/decl"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Calculatrice.ecore#//Calc/varName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Calculatrice.ecore#//Calc/e"/>
+    </genClasses>
+    <genClasses ecoreClass="Calculatrice.ecore#//CalcExpr">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Calculatrice.ecore#//CalcExpr/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Calculatrice.ecore#//CalcExpr/op"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Calculatrice.ecore#//CalcExpr/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Calculatrice.ecore#//Condition"/>
+    <genClasses ecoreClass="Calculatrice.ecore#//BoolExpr">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Calculatrice.ecore#//BoolExpr/thenBlock"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Calculatrice.ecore#//BoolExpr/elseBlock"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Calculatrice.ecore#//BoolExpr/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Calculatrice.ecore#//BoolExpr/op"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Calculatrice.ecore#//BoolExpr/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Calculatrice.ecore#//Number">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Calculatrice.ecore#//Number/neg"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Calculatrice.ecore#//Number/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Calculatrice.ecore#//VarCall">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Calculatrice.ecore#//VarCall/varCall"/>
+    </genClasses>
+    <genClasses ecoreClass="Calculatrice.ecore#//Boolean">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Calculatrice.ecore#//Boolean/BoolValue"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

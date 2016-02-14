@@ -2,33 +2,38 @@ grammar org.xtext.example.mydsl.Calculatrice with org.eclipse.xtext.common.Termi
 
 generate calculatrice "http://www.xtext.org/example/mydsl/Calculatrice"
 
-Model:
-	formule+=Formule
+Calculatrice:
+	(calculs+=Calc '\n')*
+	;
+
+Calc: "bool" boolName=ID "=" b=BoolExpr
+	| Condition
+	| ( (decl?="var")? varName=ID "=")? e=CalcExpr
 ;
 
-Formule:
-	Terme Operation
-;
-
-Operation:
-	(('+'|'-') Terme Operation)?
-;
-
-OperationPrio:
-	(('*'|'/') Facteur OperationPrio)?
-;
-
-Terme:
-	Facteur OperationPrio
-;
-
-Facteur:
-	'(' Formule ')'
-	| Entier
-;
+CalcExpr:
+	Term ({CalcExpr.left=current} op=('+'|'-') right=CalcExpr)?;
 	
-	
-terminal Entier:
-	('-')?INT
+
+Term returns CalcExpr:
+	Factor ({CalcExpr.left=current} op=('*'|'/') right=Term)?;
+
+Factor returns CalcExpr:
+	'(' CalcExpr ')'
+	| {Number} (neg?='-')? value=INT /* ('.' frac=INT)? ('e' (negexp ?= '-')? exponent=INT)? */
+	| {VarCall} varCall=ID
+;
+
+Condition:
+	"if" BoolExpr "then" thenBlock=Calc ("else" elseBlock=Calc)? "end"
+;
+
+BoolExpr:
+	Bool ({BoolExpr.left=current} op=('&&'|'||') right=BoolExpr)?
 	;
 	
+Bool returns BoolExpr:
+	'(' BoolExpr ')'
+//	| {Comp} left=CalcExpr op=('=='|'<'|'>'|'<='|'>=') right=CalcExpr
+	| {Boolean} BoolValue=("true"|"false")
+;

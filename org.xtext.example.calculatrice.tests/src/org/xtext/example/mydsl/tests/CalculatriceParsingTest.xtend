@@ -10,14 +10,14 @@ import org.eclipse.xtext.junit4.util.ParseHelper
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.xtext.example.mydsl.calculatrice.Model
+import org.xtext.example.mydsl.calculatrice.Calculatrice
 
 @RunWith(XtextRunner)
 @InjectWith(CalculatriceInjectorProvider)
 class CalculatriceParsingTest{
 
 	@Inject
-	ParseHelper<Model> parseHelper;
+	ParseHelper<Calculatrice> parseHelper;
 
 	@Test 
 	def void loadModel() {

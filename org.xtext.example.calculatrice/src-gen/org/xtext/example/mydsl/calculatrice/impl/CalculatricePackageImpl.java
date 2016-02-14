@@ -6,12 +6,18 @@ package org.xtext.example.mydsl.calculatrice.impl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.xtext.example.mydsl.calculatrice.BoolExpr;
+import org.xtext.example.mydsl.calculatrice.Calc;
+import org.xtext.example.mydsl.calculatrice.CalcExpr;
+import org.xtext.example.mydsl.calculatrice.Calculatrice;
 import org.xtext.example.mydsl.calculatrice.CalculatriceFactory;
 import org.xtext.example.mydsl.calculatrice.CalculatricePackage;
-import org.xtext.example.mydsl.calculatrice.Model;
+import org.xtext.example.mydsl.calculatrice.Condition;
+import org.xtext.example.mydsl.calculatrice.VarCall;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,7 +32,56 @@ public class CalculatricePackageImpl extends EPackageImpl implements Calculatric
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass modelEClass = null;
+  private EClass calculatriceEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass calcEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass calcExprEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass conditionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass boolExprEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass numberEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass varCallEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass booleanEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -96,9 +151,9 @@ public class CalculatricePackageImpl extends EPackageImpl implements Calculatric
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getModel()
+  public EClass getCalculatrice()
   {
-    return modelEClass;
+    return calculatriceEClass;
   }
 
   /**
@@ -106,9 +161,249 @@ public class CalculatricePackageImpl extends EPackageImpl implements Calculatric
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getModel_Formule()
+  public EReference getCalculatrice_Calculs()
   {
-    return (EAttribute)modelEClass.getEStructuralFeatures().get(0);
+    return (EReference)calculatriceEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getCalc()
+  {
+    return calcEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCalc_BoolName()
+  {
+    return (EAttribute)calcEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCalc_B()
+  {
+    return (EReference)calcEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCalc_Decl()
+  {
+    return (EAttribute)calcEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCalc_VarName()
+  {
+    return (EAttribute)calcEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCalc_E()
+  {
+    return (EReference)calcEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getCalcExpr()
+  {
+    return calcExprEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCalcExpr_Left()
+  {
+    return (EReference)calcExprEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCalcExpr_Op()
+  {
+    return (EAttribute)calcExprEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCalcExpr_Right()
+  {
+    return (EReference)calcExprEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getCondition()
+  {
+    return conditionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getBoolExpr()
+  {
+    return boolExprEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getBoolExpr_ThenBlock()
+  {
+    return (EReference)boolExprEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getBoolExpr_ElseBlock()
+  {
+    return (EReference)boolExprEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getBoolExpr_Left()
+  {
+    return (EReference)boolExprEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getBoolExpr_Op()
+  {
+    return (EAttribute)boolExprEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getBoolExpr_Right()
+  {
+    return (EReference)boolExprEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getNumber()
+  {
+    return numberEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getNumber_Neg()
+  {
+    return (EAttribute)numberEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getNumber_Value()
+  {
+    return (EAttribute)numberEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getVarCall()
+  {
+    return varCallEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getVarCall_VarCall()
+  {
+    return (EAttribute)varCallEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getBoolean()
+  {
+    return booleanEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getBoolean_BoolValue()
+  {
+    return (EAttribute)booleanEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -141,8 +436,39 @@ public class CalculatricePackageImpl extends EPackageImpl implements Calculatric
     isCreated = true;
 
     // Create classes and their features
-    modelEClass = createEClass(MODEL);
-    createEAttribute(modelEClass, MODEL__FORMULE);
+    calculatriceEClass = createEClass(CALCULATRICE);
+    createEReference(calculatriceEClass, CALCULATRICE__CALCULS);
+
+    calcEClass = createEClass(CALC);
+    createEAttribute(calcEClass, CALC__BOOL_NAME);
+    createEReference(calcEClass, CALC__B);
+    createEAttribute(calcEClass, CALC__DECL);
+    createEAttribute(calcEClass, CALC__VAR_NAME);
+    createEReference(calcEClass, CALC__E);
+
+    calcExprEClass = createEClass(CALC_EXPR);
+    createEReference(calcExprEClass, CALC_EXPR__LEFT);
+    createEAttribute(calcExprEClass, CALC_EXPR__OP);
+    createEReference(calcExprEClass, CALC_EXPR__RIGHT);
+
+    conditionEClass = createEClass(CONDITION);
+
+    boolExprEClass = createEClass(BOOL_EXPR);
+    createEReference(boolExprEClass, BOOL_EXPR__THEN_BLOCK);
+    createEReference(boolExprEClass, BOOL_EXPR__ELSE_BLOCK);
+    createEReference(boolExprEClass, BOOL_EXPR__LEFT);
+    createEAttribute(boolExprEClass, BOOL_EXPR__OP);
+    createEReference(boolExprEClass, BOOL_EXPR__RIGHT);
+
+    numberEClass = createEClass(NUMBER);
+    createEAttribute(numberEClass, NUMBER__NEG);
+    createEAttribute(numberEClass, NUMBER__VALUE);
+
+    varCallEClass = createEClass(VAR_CALL);
+    createEAttribute(varCallEClass, VAR_CALL__VAR_CALL);
+
+    booleanEClass = createEClass(BOOLEAN);
+    createEAttribute(booleanEClass, BOOLEAN__BOOL_VALUE);
   }
 
   /**
@@ -174,10 +500,46 @@ public class CalculatricePackageImpl extends EPackageImpl implements Calculatric
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    conditionEClass.getESuperTypes().add(this.getCalc());
+    boolExprEClass.getESuperTypes().add(this.getCondition());
+    numberEClass.getESuperTypes().add(this.getCalcExpr());
+    varCallEClass.getESuperTypes().add(this.getCalcExpr());
+    booleanEClass.getESuperTypes().add(this.getBoolExpr());
 
     // Initialize classes and features; add operations and parameters
-    initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getModel_Formule(), ecorePackage.getEString(), "formule", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(calculatriceEClass, Calculatrice.class, "Calculatrice", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCalculatrice_Calculs(), this.getCalc(), null, "calculs", null, 0, -1, Calculatrice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(calcEClass, Calc.class, "Calc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCalc_BoolName(), ecorePackage.getEString(), "boolName", null, 0, 1, Calc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCalc_B(), this.getBoolExpr(), null, "b", null, 0, 1, Calc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCalc_Decl(), ecorePackage.getEBoolean(), "decl", null, 0, 1, Calc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCalc_VarName(), ecorePackage.getEString(), "varName", null, 0, 1, Calc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCalc_E(), this.getCalcExpr(), null, "e", null, 0, 1, Calc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(calcExprEClass, CalcExpr.class, "CalcExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCalcExpr_Left(), this.getCalcExpr(), null, "left", null, 0, 1, CalcExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCalcExpr_Op(), ecorePackage.getEString(), "op", null, 0, 1, CalcExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCalcExpr_Right(), this.getCalcExpr(), null, "right", null, 0, 1, CalcExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(conditionEClass, Condition.class, "Condition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(boolExprEClass, BoolExpr.class, "BoolExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getBoolExpr_ThenBlock(), this.getCalc(), null, "thenBlock", null, 0, 1, BoolExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBoolExpr_ElseBlock(), this.getCalc(), null, "elseBlock", null, 0, 1, BoolExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBoolExpr_Left(), this.getBoolExpr(), null, "left", null, 0, 1, BoolExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getBoolExpr_Op(), ecorePackage.getEString(), "op", null, 0, 1, BoolExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBoolExpr_Right(), this.getBoolExpr(), null, "right", null, 0, 1, BoolExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(numberEClass, org.xtext.example.mydsl.calculatrice.Number.class, "Number", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getNumber_Neg(), ecorePackage.getEBoolean(), "neg", null, 0, 1, org.xtext.example.mydsl.calculatrice.Number.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getNumber_Value(), ecorePackage.getEInt(), "value", null, 0, 1, org.xtext.example.mydsl.calculatrice.Number.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(varCallEClass, VarCall.class, "VarCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getVarCall_VarCall(), ecorePackage.getEString(), "varCall", null, 0, 1, VarCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(booleanEClass, org.xtext.example.mydsl.calculatrice.Boolean.class, "Boolean", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getBoolean_BoolValue(), ecorePackage.getEString(), "BoolValue", null, 0, 1, org.xtext.example.mydsl.calculatrice.Boolean.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

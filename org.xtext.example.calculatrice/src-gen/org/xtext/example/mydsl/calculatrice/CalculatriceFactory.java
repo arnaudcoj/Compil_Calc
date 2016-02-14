@@ -24,13 +24,76 @@ public interface CalculatriceFactory extends EFactory
   CalculatriceFactory eINSTANCE = org.xtext.example.mydsl.calculatrice.impl.CalculatriceFactoryImpl.init();
 
   /**
-   * Returns a new object of class '<em>Model</em>'.
+   * Returns a new object of class '<em>Calculatrice</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Model</em>'.
+   * @return a new object of class '<em>Calculatrice</em>'.
    * @generated
    */
-  Model createModel();
+  Calculatrice createCalculatrice();
+
+  /**
+   * Returns a new object of class '<em>Calc</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Calc</em>'.
+   * @generated
+   */
+  Calc createCalc();
+
+  /**
+   * Returns a new object of class '<em>Calc Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Calc Expr</em>'.
+   * @generated
+   */
+  CalcExpr createCalcExpr();
+
+  /**
+   * Returns a new object of class '<em>Condition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Condition</em>'.
+   * @generated
+   */
+  Condition createCondition();
+
+  /**
+   * Returns a new object of class '<em>Bool Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Bool Expr</em>'.
+   * @generated
+   */
+  BoolExpr createBoolExpr();
+
+  /**
+   * Returns a new object of class '<em>Number</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Number</em>'.
+   * @generated
+   */
+  Number createNumber();
+
+  /**
+   * Returns a new object of class '<em>Var Call</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Var Call</em>'.
+   * @generated
+   */
+  VarCall createVarCall();
+
+  /**
+   * Returns a new object of class '<em>Boolean</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Boolean</em>'.
+   * @generated
+   */
+  Boolean createBoolean();
 
   /**
    * Returns the package supported by this factory.

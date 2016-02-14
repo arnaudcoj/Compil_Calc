@@ -12,7 +12,7 @@ import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.xtext.example.mydsl.calculatrice.Model;
+import org.xtext.example.mydsl.calculatrice.Calculatrice;
 import org.xtext.example.mydsl.tests.CalculatriceInjectorProvider;
 
 @RunWith(XtextRunner.class)
@@ -20,7 +20,7 @@ import org.xtext.example.mydsl.tests.CalculatriceInjectorProvider;
 @SuppressWarnings("all")
 public class CalculatriceParsingTest {
   @Inject
-  private ParseHelper<Model> parseHelper;
+  private ParseHelper<Calculatrice> parseHelper;
   
   @Test
   public void loadModel() {
@@ -28,7 +28,7 @@ public class CalculatriceParsingTest {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("Hello Xtext!");
       _builder.newLine();
-      final Model result = this.parseHelper.parse(_builder);
+      final Calculatrice result = this.parseHelper.parse(_builder);
       Assert.assertNotNull(result);
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);

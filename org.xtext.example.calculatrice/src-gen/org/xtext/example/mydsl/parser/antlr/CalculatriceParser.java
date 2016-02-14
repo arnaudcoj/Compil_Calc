@@ -27,7 +27,7 @@ public class CalculatriceParser extends AbstractAntlrParser {
 
 	@Override 
 	protected String getDefaultRuleName() {
-		return "Model";
+		return "Calculatrice";
 	}
 
 	public CalculatriceGrammarAccess getGrammarAccess() {

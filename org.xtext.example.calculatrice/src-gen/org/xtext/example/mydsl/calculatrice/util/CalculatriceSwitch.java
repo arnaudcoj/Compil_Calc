@@ -8,7 +8,13 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 
-import org.xtext.example.mydsl.calculatrice.*;
+import org.xtext.example.mydsl.calculatrice.BoolExpr;
+import org.xtext.example.mydsl.calculatrice.Calc;
+import org.xtext.example.mydsl.calculatrice.CalcExpr;
+import org.xtext.example.mydsl.calculatrice.Calculatrice;
+import org.xtext.example.mydsl.calculatrice.CalculatricePackage;
+import org.xtext.example.mydsl.calculatrice.Condition;
+import org.xtext.example.mydsl.calculatrice.VarCall;
 
 /**
  * <!-- begin-user-doc -->
@@ -73,10 +79,67 @@ public class CalculatriceSwitch<T> extends Switch<T>
   {
     switch (classifierID)
     {
-      case CalculatricePackage.MODEL:
+      case CalculatricePackage.CALCULATRICE:
       {
-        Model model = (Model)theEObject;
-        T result = caseModel(model);
+        Calculatrice calculatrice = (Calculatrice)theEObject;
+        T result = caseCalculatrice(calculatrice);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CalculatricePackage.CALC:
+      {
+        Calc calc = (Calc)theEObject;
+        T result = caseCalc(calc);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CalculatricePackage.CALC_EXPR:
+      {
+        CalcExpr calcExpr = (CalcExpr)theEObject;
+        T result = caseCalcExpr(calcExpr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CalculatricePackage.CONDITION:
+      {
+        Condition condition = (Condition)theEObject;
+        T result = caseCondition(condition);
+        if (result == null) result = caseCalc(condition);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CalculatricePackage.BOOL_EXPR:
+      {
+        BoolExpr boolExpr = (BoolExpr)theEObject;
+        T result = caseBoolExpr(boolExpr);
+        if (result == null) result = caseCondition(boolExpr);
+        if (result == null) result = caseCalc(boolExpr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CalculatricePackage.NUMBER:
+      {
+        org.xtext.example.mydsl.calculatrice.Number number = (org.xtext.example.mydsl.calculatrice.Number)theEObject;
+        T result = caseNumber(number);
+        if (result == null) result = caseCalcExpr(number);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CalculatricePackage.VAR_CALL:
+      {
+        VarCall varCall = (VarCall)theEObject;
+        T result = caseVarCall(varCall);
+        if (result == null) result = caseCalcExpr(varCall);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CalculatricePackage.BOOLEAN:
+      {
+        org.xtext.example.mydsl.calculatrice.Boolean boolean_ = (org.xtext.example.mydsl.calculatrice.Boolean)theEObject;
+        T result = caseBoolean(boolean_);
+        if (result == null) result = caseBoolExpr(boolean_);
+        if (result == null) result = caseCondition(boolean_);
+        if (result == null) result = caseCalc(boolean_);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -85,17 +148,129 @@ public class CalculatriceSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Model</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Calculatrice</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Model</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Calculatrice</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseModel(Model object)
+  public T caseCalculatrice(Calculatrice object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Calc</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Calc</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCalc(Calc object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Calc Expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Calc Expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCalcExpr(CalcExpr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Condition</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Condition</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCondition(Condition object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Bool Expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Bool Expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBoolExpr(BoolExpr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Number</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Number</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNumber(org.xtext.example.mydsl.calculatrice.Number object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Var Call</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Var Call</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseVarCall(VarCall object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Boolean</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Boolean</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBoolean(org.xtext.example.mydsl.calculatrice.Boolean object)
   {
     return null;
   }

@@ -3,10 +3,15 @@
  */
 package org.xtext.example.mydsl.generator;
 
+import com.google.common.collect.Iterables;
+import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import org.xtext.example.mydsl.calculatrice.Calculatrice;
 
 /**
  * Generates code from your model files on save.
@@ -17,5 +22,23 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 public class CalculatriceGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    TreeIterator<EObject> _allContents = resource.getAllContents();
+    Iterable<EObject> _iterable = IteratorExtensions.<EObject>toIterable(_allContents);
+    Iterable<Calculatrice> _filter = Iterables.<Calculatrice>filter(_iterable, Calculatrice.class);
+    for (final Calculatrice c : _filter) {
+      CharSequence _compile = this.compile(c);
+      fsa.generateFile("calculatrice/Calc.java", _compile);
+    }
+  }
+  
+  public CharSequence compile(final EObject o) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nExpr cannot be resolved to a type."
+      + "\nThe method or field left is undefined for the type EObject"
+      + "\nThe method or field op is undefined for the type EObject"
+      + "\nThe method or field right is undefined for the type EObject"
+      + "\nUnreachable code: The case can never match. It is already handled by a previous condition."
+      + "\ncompile cannot be resolved"
+      + "\ncompile cannot be resolved");
   }
 }

@@ -6,6 +6,7 @@ package org.xtext.example.mydsl.calculatrice;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -57,54 +58,831 @@ public interface CalculatricePackage extends EPackage
   CalculatricePackage eINSTANCE = org.xtext.example.mydsl.calculatrice.impl.CalculatricePackageImpl.init();
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.calculatrice.impl.ModelImpl <em>Model</em>}' class.
+   * The meta object id for the '{@link org.xtext.example.mydsl.calculatrice.impl.CalculatriceImpl <em>Calculatrice</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.calculatrice.impl.ModelImpl
-   * @see org.xtext.example.mydsl.calculatrice.impl.CalculatricePackageImpl#getModel()
+   * @see org.xtext.example.mydsl.calculatrice.impl.CalculatriceImpl
+   * @see org.xtext.example.mydsl.calculatrice.impl.CalculatricePackageImpl#getCalculatrice()
    * @generated
    */
-  int MODEL = 0;
+  int CALCULATRICE = 0;
 
   /**
-   * The feature id for the '<em><b>Formule</b></em>' attribute list.
+   * The feature id for the '<em><b>Calculs</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL__FORMULE = 0;
+  int CALCULATRICE__CALCULS = 0;
 
   /**
-   * The number of structural features of the '<em>Model</em>' class.
+   * The number of structural features of the '<em>Calculatrice</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL_FEATURE_COUNT = 1;
+  int CALCULATRICE_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.calculatrice.impl.CalcImpl <em>Calc</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.calculatrice.impl.CalcImpl
+   * @see org.xtext.example.mydsl.calculatrice.impl.CalculatricePackageImpl#getCalc()
+   * @generated
+   */
+  int CALC = 1;
+
+  /**
+   * The feature id for the '<em><b>Bool Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CALC__BOOL_NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>B</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CALC__B = 1;
+
+  /**
+   * The feature id for the '<em><b>Decl</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CALC__DECL = 2;
+
+  /**
+   * The feature id for the '<em><b>Var Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CALC__VAR_NAME = 3;
+
+  /**
+   * The feature id for the '<em><b>E</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CALC__E = 4;
+
+  /**
+   * The number of structural features of the '<em>Calc</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CALC_FEATURE_COUNT = 5;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.calculatrice.impl.CalcExprImpl <em>Calc Expr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.calculatrice.impl.CalcExprImpl
+   * @see org.xtext.example.mydsl.calculatrice.impl.CalculatricePackageImpl#getCalcExpr()
+   * @generated
+   */
+  int CALC_EXPR = 2;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CALC_EXPR__LEFT = 0;
+
+  /**
+   * The feature id for the '<em><b>Op</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CALC_EXPR__OP = 1;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CALC_EXPR__RIGHT = 2;
+
+  /**
+   * The number of structural features of the '<em>Calc Expr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CALC_EXPR_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.calculatrice.impl.ConditionImpl <em>Condition</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.calculatrice.impl.ConditionImpl
+   * @see org.xtext.example.mydsl.calculatrice.impl.CalculatricePackageImpl#getCondition()
+   * @generated
+   */
+  int CONDITION = 3;
+
+  /**
+   * The feature id for the '<em><b>Bool Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITION__BOOL_NAME = CALC__BOOL_NAME;
+
+  /**
+   * The feature id for the '<em><b>B</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITION__B = CALC__B;
+
+  /**
+   * The feature id for the '<em><b>Decl</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITION__DECL = CALC__DECL;
+
+  /**
+   * The feature id for the '<em><b>Var Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITION__VAR_NAME = CALC__VAR_NAME;
+
+  /**
+   * The feature id for the '<em><b>E</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITION__E = CALC__E;
+
+  /**
+   * The number of structural features of the '<em>Condition</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITION_FEATURE_COUNT = CALC_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.calculatrice.impl.BoolExprImpl <em>Bool Expr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.calculatrice.impl.BoolExprImpl
+   * @see org.xtext.example.mydsl.calculatrice.impl.CalculatricePackageImpl#getBoolExpr()
+   * @generated
+   */
+  int BOOL_EXPR = 4;
+
+  /**
+   * The feature id for the '<em><b>Bool Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOL_EXPR__BOOL_NAME = CONDITION__BOOL_NAME;
+
+  /**
+   * The feature id for the '<em><b>B</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOL_EXPR__B = CONDITION__B;
+
+  /**
+   * The feature id for the '<em><b>Decl</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOL_EXPR__DECL = CONDITION__DECL;
+
+  /**
+   * The feature id for the '<em><b>Var Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOL_EXPR__VAR_NAME = CONDITION__VAR_NAME;
+
+  /**
+   * The feature id for the '<em><b>E</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOL_EXPR__E = CONDITION__E;
+
+  /**
+   * The feature id for the '<em><b>Then Block</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOL_EXPR__THEN_BLOCK = CONDITION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Else Block</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOL_EXPR__ELSE_BLOCK = CONDITION_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOL_EXPR__LEFT = CONDITION_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Op</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOL_EXPR__OP = CONDITION_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOL_EXPR__RIGHT = CONDITION_FEATURE_COUNT + 4;
+
+  /**
+   * The number of structural features of the '<em>Bool Expr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOL_EXPR_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 5;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.calculatrice.impl.NumberImpl <em>Number</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.calculatrice.impl.NumberImpl
+   * @see org.xtext.example.mydsl.calculatrice.impl.CalculatricePackageImpl#getNumber()
+   * @generated
+   */
+  int NUMBER = 5;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NUMBER__LEFT = CALC_EXPR__LEFT;
+
+  /**
+   * The feature id for the '<em><b>Op</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NUMBER__OP = CALC_EXPR__OP;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NUMBER__RIGHT = CALC_EXPR__RIGHT;
+
+  /**
+   * The feature id for the '<em><b>Neg</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NUMBER__NEG = CALC_EXPR_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NUMBER__VALUE = CALC_EXPR_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Number</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NUMBER_FEATURE_COUNT = CALC_EXPR_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.calculatrice.impl.VarCallImpl <em>Var Call</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.calculatrice.impl.VarCallImpl
+   * @see org.xtext.example.mydsl.calculatrice.impl.CalculatricePackageImpl#getVarCall()
+   * @generated
+   */
+  int VAR_CALL = 6;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VAR_CALL__LEFT = CALC_EXPR__LEFT;
+
+  /**
+   * The feature id for the '<em><b>Op</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VAR_CALL__OP = CALC_EXPR__OP;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VAR_CALL__RIGHT = CALC_EXPR__RIGHT;
+
+  /**
+   * The feature id for the '<em><b>Var Call</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VAR_CALL__VAR_CALL = CALC_EXPR_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Var Call</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VAR_CALL_FEATURE_COUNT = CALC_EXPR_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.calculatrice.impl.BooleanImpl <em>Boolean</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.calculatrice.impl.BooleanImpl
+   * @see org.xtext.example.mydsl.calculatrice.impl.CalculatricePackageImpl#getBoolean()
+   * @generated
+   */
+  int BOOLEAN = 7;
+
+  /**
+   * The feature id for the '<em><b>Bool Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOLEAN__BOOL_NAME = BOOL_EXPR__BOOL_NAME;
+
+  /**
+   * The feature id for the '<em><b>B</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOLEAN__B = BOOL_EXPR__B;
+
+  /**
+   * The feature id for the '<em><b>Decl</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOLEAN__DECL = BOOL_EXPR__DECL;
+
+  /**
+   * The feature id for the '<em><b>Var Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOLEAN__VAR_NAME = BOOL_EXPR__VAR_NAME;
+
+  /**
+   * The feature id for the '<em><b>E</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOLEAN__E = BOOL_EXPR__E;
+
+  /**
+   * The feature id for the '<em><b>Then Block</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOLEAN__THEN_BLOCK = BOOL_EXPR__THEN_BLOCK;
+
+  /**
+   * The feature id for the '<em><b>Else Block</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOLEAN__ELSE_BLOCK = BOOL_EXPR__ELSE_BLOCK;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOLEAN__LEFT = BOOL_EXPR__LEFT;
+
+  /**
+   * The feature id for the '<em><b>Op</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOLEAN__OP = BOOL_EXPR__OP;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOLEAN__RIGHT = BOOL_EXPR__RIGHT;
+
+  /**
+   * The feature id for the '<em><b>Bool Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOLEAN__BOOL_VALUE = BOOL_EXPR_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Boolean</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOLEAN_FEATURE_COUNT = BOOL_EXPR_FEATURE_COUNT + 1;
 
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.calculatrice.Model <em>Model</em>}'.
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.calculatrice.Calculatrice <em>Calculatrice</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Model</em>'.
-   * @see org.xtext.example.mydsl.calculatrice.Model
+   * @return the meta object for class '<em>Calculatrice</em>'.
+   * @see org.xtext.example.mydsl.calculatrice.Calculatrice
    * @generated
    */
-  EClass getModel();
+  EClass getCalculatrice();
 
   /**
-   * Returns the meta object for the attribute list '{@link org.xtext.example.mydsl.calculatrice.Model#getFormule <em>Formule</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.calculatrice.Calculatrice#getCalculs <em>Calculs</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Formule</em>'.
-   * @see org.xtext.example.mydsl.calculatrice.Model#getFormule()
-   * @see #getModel()
+   * @return the meta object for the containment reference list '<em>Calculs</em>'.
+   * @see org.xtext.example.mydsl.calculatrice.Calculatrice#getCalculs()
+   * @see #getCalculatrice()
    * @generated
    */
-  EAttribute getModel_Formule();
+  EReference getCalculatrice_Calculs();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.calculatrice.Calc <em>Calc</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Calc</em>'.
+   * @see org.xtext.example.mydsl.calculatrice.Calc
+   * @generated
+   */
+  EClass getCalc();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.calculatrice.Calc#getBoolName <em>Bool Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Bool Name</em>'.
+   * @see org.xtext.example.mydsl.calculatrice.Calc#getBoolName()
+   * @see #getCalc()
+   * @generated
+   */
+  EAttribute getCalc_BoolName();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.calculatrice.Calc#getB <em>B</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>B</em>'.
+   * @see org.xtext.example.mydsl.calculatrice.Calc#getB()
+   * @see #getCalc()
+   * @generated
+   */
+  EReference getCalc_B();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.calculatrice.Calc#isDecl <em>Decl</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Decl</em>'.
+   * @see org.xtext.example.mydsl.calculatrice.Calc#isDecl()
+   * @see #getCalc()
+   * @generated
+   */
+  EAttribute getCalc_Decl();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.calculatrice.Calc#getVarName <em>Var Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Var Name</em>'.
+   * @see org.xtext.example.mydsl.calculatrice.Calc#getVarName()
+   * @see #getCalc()
+   * @generated
+   */
+  EAttribute getCalc_VarName();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.calculatrice.Calc#getE <em>E</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>E</em>'.
+   * @see org.xtext.example.mydsl.calculatrice.Calc#getE()
+   * @see #getCalc()
+   * @generated
+   */
+  EReference getCalc_E();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.calculatrice.CalcExpr <em>Calc Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Calc Expr</em>'.
+   * @see org.xtext.example.mydsl.calculatrice.CalcExpr
+   * @generated
+   */
+  EClass getCalcExpr();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.calculatrice.CalcExpr#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see org.xtext.example.mydsl.calculatrice.CalcExpr#getLeft()
+   * @see #getCalcExpr()
+   * @generated
+   */
+  EReference getCalcExpr_Left();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.calculatrice.CalcExpr#getOp <em>Op</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Op</em>'.
+   * @see org.xtext.example.mydsl.calculatrice.CalcExpr#getOp()
+   * @see #getCalcExpr()
+   * @generated
+   */
+  EAttribute getCalcExpr_Op();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.calculatrice.CalcExpr#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see org.xtext.example.mydsl.calculatrice.CalcExpr#getRight()
+   * @see #getCalcExpr()
+   * @generated
+   */
+  EReference getCalcExpr_Right();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.calculatrice.Condition <em>Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Condition</em>'.
+   * @see org.xtext.example.mydsl.calculatrice.Condition
+   * @generated
+   */
+  EClass getCondition();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.calculatrice.BoolExpr <em>Bool Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Bool Expr</em>'.
+   * @see org.xtext.example.mydsl.calculatrice.BoolExpr
+   * @generated
+   */
+  EClass getBoolExpr();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.calculatrice.BoolExpr#getThenBlock <em>Then Block</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Then Block</em>'.
+   * @see org.xtext.example.mydsl.calculatrice.BoolExpr#getThenBlock()
+   * @see #getBoolExpr()
+   * @generated
+   */
+  EReference getBoolExpr_ThenBlock();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.calculatrice.BoolExpr#getElseBlock <em>Else Block</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Else Block</em>'.
+   * @see org.xtext.example.mydsl.calculatrice.BoolExpr#getElseBlock()
+   * @see #getBoolExpr()
+   * @generated
+   */
+  EReference getBoolExpr_ElseBlock();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.calculatrice.BoolExpr#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see org.xtext.example.mydsl.calculatrice.BoolExpr#getLeft()
+   * @see #getBoolExpr()
+   * @generated
+   */
+  EReference getBoolExpr_Left();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.calculatrice.BoolExpr#getOp <em>Op</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Op</em>'.
+   * @see org.xtext.example.mydsl.calculatrice.BoolExpr#getOp()
+   * @see #getBoolExpr()
+   * @generated
+   */
+  EAttribute getBoolExpr_Op();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.calculatrice.BoolExpr#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see org.xtext.example.mydsl.calculatrice.BoolExpr#getRight()
+   * @see #getBoolExpr()
+   * @generated
+   */
+  EReference getBoolExpr_Right();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.calculatrice.Number <em>Number</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Number</em>'.
+   * @see org.xtext.example.mydsl.calculatrice.Number
+   * @generated
+   */
+  EClass getNumber();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.calculatrice.Number#isNeg <em>Neg</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Neg</em>'.
+   * @see org.xtext.example.mydsl.calculatrice.Number#isNeg()
+   * @see #getNumber()
+   * @generated
+   */
+  EAttribute getNumber_Neg();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.calculatrice.Number#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.xtext.example.mydsl.calculatrice.Number#getValue()
+   * @see #getNumber()
+   * @generated
+   */
+  EAttribute getNumber_Value();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.calculatrice.VarCall <em>Var Call</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Var Call</em>'.
+   * @see org.xtext.example.mydsl.calculatrice.VarCall
+   * @generated
+   */
+  EClass getVarCall();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.calculatrice.VarCall#getVarCall <em>Var Call</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Var Call</em>'.
+   * @see org.xtext.example.mydsl.calculatrice.VarCall#getVarCall()
+   * @see #getVarCall()
+   * @generated
+   */
+  EAttribute getVarCall_VarCall();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.calculatrice.Boolean <em>Boolean</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Boolean</em>'.
+   * @see org.xtext.example.mydsl.calculatrice.Boolean
+   * @generated
+   */
+  EClass getBoolean();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.calculatrice.Boolean#getBoolValue <em>Bool Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Bool Value</em>'.
+   * @see org.xtext.example.mydsl.calculatrice.Boolean#getBoolValue()
+   * @see #getBoolean()
+   * @generated
+   */
+  EAttribute getBoolean_BoolValue();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -130,22 +908,228 @@ public interface CalculatricePackage extends EPackage
   interface Literals
   {
     /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.calculatrice.impl.ModelImpl <em>Model</em>}' class.
+     * The meta object literal for the '{@link org.xtext.example.mydsl.calculatrice.impl.CalculatriceImpl <em>Calculatrice</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.calculatrice.impl.ModelImpl
-     * @see org.xtext.example.mydsl.calculatrice.impl.CalculatricePackageImpl#getModel()
+     * @see org.xtext.example.mydsl.calculatrice.impl.CalculatriceImpl
+     * @see org.xtext.example.mydsl.calculatrice.impl.CalculatricePackageImpl#getCalculatrice()
      * @generated
      */
-    EClass MODEL = eINSTANCE.getModel();
+    EClass CALCULATRICE = eINSTANCE.getCalculatrice();
 
     /**
-     * The meta object literal for the '<em><b>Formule</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Calculs</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute MODEL__FORMULE = eINSTANCE.getModel_Formule();
+    EReference CALCULATRICE__CALCULS = eINSTANCE.getCalculatrice_Calculs();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.calculatrice.impl.CalcImpl <em>Calc</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.calculatrice.impl.CalcImpl
+     * @see org.xtext.example.mydsl.calculatrice.impl.CalculatricePackageImpl#getCalc()
+     * @generated
+     */
+    EClass CALC = eINSTANCE.getCalc();
+
+    /**
+     * The meta object literal for the '<em><b>Bool Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CALC__BOOL_NAME = eINSTANCE.getCalc_BoolName();
+
+    /**
+     * The meta object literal for the '<em><b>B</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CALC__B = eINSTANCE.getCalc_B();
+
+    /**
+     * The meta object literal for the '<em><b>Decl</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CALC__DECL = eINSTANCE.getCalc_Decl();
+
+    /**
+     * The meta object literal for the '<em><b>Var Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CALC__VAR_NAME = eINSTANCE.getCalc_VarName();
+
+    /**
+     * The meta object literal for the '<em><b>E</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CALC__E = eINSTANCE.getCalc_E();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.calculatrice.impl.CalcExprImpl <em>Calc Expr</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.calculatrice.impl.CalcExprImpl
+     * @see org.xtext.example.mydsl.calculatrice.impl.CalculatricePackageImpl#getCalcExpr()
+     * @generated
+     */
+    EClass CALC_EXPR = eINSTANCE.getCalcExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CALC_EXPR__LEFT = eINSTANCE.getCalcExpr_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CALC_EXPR__OP = eINSTANCE.getCalcExpr_Op();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CALC_EXPR__RIGHT = eINSTANCE.getCalcExpr_Right();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.calculatrice.impl.ConditionImpl <em>Condition</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.calculatrice.impl.ConditionImpl
+     * @see org.xtext.example.mydsl.calculatrice.impl.CalculatricePackageImpl#getCondition()
+     * @generated
+     */
+    EClass CONDITION = eINSTANCE.getCondition();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.calculatrice.impl.BoolExprImpl <em>Bool Expr</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.calculatrice.impl.BoolExprImpl
+     * @see org.xtext.example.mydsl.calculatrice.impl.CalculatricePackageImpl#getBoolExpr()
+     * @generated
+     */
+    EClass BOOL_EXPR = eINSTANCE.getBoolExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Then Block</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BOOL_EXPR__THEN_BLOCK = eINSTANCE.getBoolExpr_ThenBlock();
+
+    /**
+     * The meta object literal for the '<em><b>Else Block</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BOOL_EXPR__ELSE_BLOCK = eINSTANCE.getBoolExpr_ElseBlock();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BOOL_EXPR__LEFT = eINSTANCE.getBoolExpr_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BOOL_EXPR__OP = eINSTANCE.getBoolExpr_Op();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BOOL_EXPR__RIGHT = eINSTANCE.getBoolExpr_Right();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.calculatrice.impl.NumberImpl <em>Number</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.calculatrice.impl.NumberImpl
+     * @see org.xtext.example.mydsl.calculatrice.impl.CalculatricePackageImpl#getNumber()
+     * @generated
+     */
+    EClass NUMBER = eINSTANCE.getNumber();
+
+    /**
+     * The meta object literal for the '<em><b>Neg</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NUMBER__NEG = eINSTANCE.getNumber_Neg();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NUMBER__VALUE = eINSTANCE.getNumber_Value();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.calculatrice.impl.VarCallImpl <em>Var Call</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.calculatrice.impl.VarCallImpl
+     * @see org.xtext.example.mydsl.calculatrice.impl.CalculatricePackageImpl#getVarCall()
+     * @generated
+     */
+    EClass VAR_CALL = eINSTANCE.getVarCall();
+
+    /**
+     * The meta object literal for the '<em><b>Var Call</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VAR_CALL__VAR_CALL = eINSTANCE.getVarCall_VarCall();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.calculatrice.impl.BooleanImpl <em>Boolean</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.calculatrice.impl.BooleanImpl
+     * @see org.xtext.example.mydsl.calculatrice.impl.CalculatricePackageImpl#getBoolean()
+     * @generated
+     */
+    EClass BOOLEAN = eINSTANCE.getBoolean();
+
+    /**
+     * The meta object literal for the '<em><b>Bool Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BOOLEAN__BOOL_VALUE = eINSTANCE.getBoolean_BoolValue();
 
   }
 

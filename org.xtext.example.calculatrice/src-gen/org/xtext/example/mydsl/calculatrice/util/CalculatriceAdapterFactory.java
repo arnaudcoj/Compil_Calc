@@ -10,7 +10,13 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
-import org.xtext.example.mydsl.calculatrice.*;
+import org.xtext.example.mydsl.calculatrice.BoolExpr;
+import org.xtext.example.mydsl.calculatrice.Calc;
+import org.xtext.example.mydsl.calculatrice.CalcExpr;
+import org.xtext.example.mydsl.calculatrice.Calculatrice;
+import org.xtext.example.mydsl.calculatrice.CalculatricePackage;
+import org.xtext.example.mydsl.calculatrice.Condition;
+import org.xtext.example.mydsl.calculatrice.VarCall;
 
 /**
  * <!-- begin-user-doc -->
@@ -76,9 +82,44 @@ public class CalculatriceAdapterFactory extends AdapterFactoryImpl
     new CalculatriceSwitch<Adapter>()
     {
       @Override
-      public Adapter caseModel(Model object)
+      public Adapter caseCalculatrice(Calculatrice object)
       {
-        return createModelAdapter();
+        return createCalculatriceAdapter();
+      }
+      @Override
+      public Adapter caseCalc(Calc object)
+      {
+        return createCalcAdapter();
+      }
+      @Override
+      public Adapter caseCalcExpr(CalcExpr object)
+      {
+        return createCalcExprAdapter();
+      }
+      @Override
+      public Adapter caseCondition(Condition object)
+      {
+        return createConditionAdapter();
+      }
+      @Override
+      public Adapter caseBoolExpr(BoolExpr object)
+      {
+        return createBoolExprAdapter();
+      }
+      @Override
+      public Adapter caseNumber(org.xtext.example.mydsl.calculatrice.Number object)
+      {
+        return createNumberAdapter();
+      }
+      @Override
+      public Adapter caseVarCall(VarCall object)
+      {
+        return createVarCallAdapter();
+      }
+      @Override
+      public Adapter caseBoolean(org.xtext.example.mydsl.calculatrice.Boolean object)
+      {
+        return createBooleanAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -103,16 +144,121 @@ public class CalculatriceAdapterFactory extends AdapterFactoryImpl
 
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.calculatrice.Model <em>Model</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.calculatrice.Calculatrice <em>Calculatrice</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.example.mydsl.calculatrice.Model
+   * @see org.xtext.example.mydsl.calculatrice.Calculatrice
    * @generated
    */
-  public Adapter createModelAdapter()
+  public Adapter createCalculatriceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.calculatrice.Calc <em>Calc</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.calculatrice.Calc
+   * @generated
+   */
+  public Adapter createCalcAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.calculatrice.CalcExpr <em>Calc Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.calculatrice.CalcExpr
+   * @generated
+   */
+  public Adapter createCalcExprAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.calculatrice.Condition <em>Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.calculatrice.Condition
+   * @generated
+   */
+  public Adapter createConditionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.calculatrice.BoolExpr <em>Bool Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.calculatrice.BoolExpr
+   * @generated
+   */
+  public Adapter createBoolExprAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.calculatrice.Number <em>Number</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.calculatrice.Number
+   * @generated
+   */
+  public Adapter createNumberAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.calculatrice.VarCall <em>Var Call</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.calculatrice.VarCall
+   * @generated
+   */
+  public Adapter createVarCallAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.calculatrice.Boolean <em>Boolean</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.calculatrice.Boolean
+   * @generated
+   */
+  public Adapter createBooleanAdapter()
   {
     return null;
   }
